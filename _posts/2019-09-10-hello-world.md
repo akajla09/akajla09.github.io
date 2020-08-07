@@ -6,4 +6,4 @@ categories: journal
 tags: [documentation,sample]
 ---
 
-Customary 'Hello world' post :)
+Hello world
