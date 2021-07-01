@@ -3,6 +3,13 @@ layout: default
 title: Home
 ---
 
+<div class="post-container">
+    <p>Hi 👋 I’m Aditya. I’m a co-founder of <a href="https://warrant.dev/">Warrant</a>.</p>
+    <p>Prior to Warrant, I built products and infra at Lyft, Medallia and Yahoo.</p>
+    <p>Some (mostly unrelated) topics that I’m interested in: programming, leading teams, finance, basketball and tennis.</p>
+    <p>Reach out to me on <a href="https://twitter.com/akajla09">Twitter</a> if you’d like to chat!</p>
+</div>
+
 {% for post in paginator.posts %}
 <div class="posts">
   <h1>
@@ -21,7 +28,7 @@ title: Home
 {% endfor %}
 
 <!-- Pagination links -->
-<div class="pagination">
+<!-- <div class="pagination">
   {% if paginator.next_page %}
     <a class="pagination-button pagination-active next" href="{{ site.github.url }}{{ paginator.next_page_path }}">{{ site.data.settings.pagination.previous_page }}</a>
   {% else %}
@@ -33,4 +40,4 @@ title: Home
   {% else %}
     <span class="pagination-button">{{ site.data.settings.pagination.next_page }}</span>
   {% endif %}
-</div>
+</div> -->
