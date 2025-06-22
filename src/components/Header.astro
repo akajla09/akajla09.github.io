@@ -1,0 +1,31 @@
+---
+import "../styles/global.css";
+
+const NAV_ITEMS = [
+    {
+        title: "Home",
+        href: "/",
+    },
+    // {
+    //     title: "Blog", 
+    //     href: "/blog",
+    // },
+    {
+        title: "Misc",
+        href: "/misc",
+    },
+]
+---
+
+<header>
+    <nav>
+        {NAV_ITEMS.map((item) => (
+            <a
+                class="pr-4"
+                href={item.href}
+            >
+                {item.title}
+            </a>
+        ))}
+    </nav>
+</header>

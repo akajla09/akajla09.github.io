@@ -1,0 +1,41 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const LINKS = [
+    {
+        href: "https://www.youtube.com/watch?v=SF4m23No2Gg",
+        title: "How Small Teams Can Build and Sell to Much Larger Enterprises - ELC 2024",
+        description:
+            "A talk I gave at ELC 2024 based on my experience building and selling enterprise software at Warrant",
+    },
+    {
+        href: "https://www.youtube.com/watch?v=TqDeVght6d0",
+        title: "Fine-Grained Authorization - ERC 2024",
+        description:
+            "A talk I gave at WorkOS's ERC 2024 conference about fine-grained authorization",
+    },
+];
+---
+
+<Layout title="Misc | Aditya Kajla">
+    <h1 class="mb-8 text-2xl font-semibold">Misc</h1>
+    <ul class="space-y-6">
+        {
+            LINKS.map((link) => (
+                <li>
+                    <a
+                        href={link.href}
+                        class="hover:underline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        {link.title}
+                    </a>
+                    <p class="text-sm mt-1 text-neutral-500 dark:text-neutral-400">
+                        {link.description}
+                    </p>
+                </li>
+            ))
+        }
+    </ul>
+</Layout>
