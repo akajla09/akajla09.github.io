@@ -13,7 +13,5 @@
 
 ## Todo
 
-- RSS, GH, X, LI links
-- 404 page
-- Blog
+- Blog, RSS
 - Theme selector
