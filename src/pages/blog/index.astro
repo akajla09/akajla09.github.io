@@ -1,0 +1,35 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+let allPosts = await getCollection("posts");
+allPosts = allPosts.sort(
+    (a, b) =>
+        new Date(b.data.publishDate).valueOf() -
+        new Date(a.data.publishDate).valueOf(),
+);
+---
+
+<Layout title="Blog | Aditya Kajla">
+    <h1 class="mb-8 text-2xl font-semibold">Blog</h1>
+    <ul class="space-y-6">
+        {
+            allPosts.map((post, index) => {
+                const href = `/blog/${post.data.slug}`;
+                return (
+                    <li>
+                        <a href={href} class="hover:underline">
+                            {post.data.title}
+                        </a>
+                        <p class="text-sm mt-1 text-neutral-500 dark:text-neutral-400">
+                            {post.data.description}
+                        </p>
+                        <p class="italic text-sm mt-1 text-neutral-500 dark:text-neutral-400">
+                            {post.data.publishDate.toDateString()}
+                        </p>
+                    </li>
+                );
+            })
+        }
+    </ul>
+</Layout>
