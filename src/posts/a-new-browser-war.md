@@ -3,6 +3,7 @@ title: "A New Browser War"
 publishDate: 2025-08-16T0:00:00-07:00
 slug: "a-new-browser-war"
 description: "AI and LLMs are ushering in a new era of web browsers and fundamentally changing how we browse the Internet"
+image: "https://akajla.com/og-browser-war.jpeg"
 ---
 
 This past week, Perplexity made an [unsolicited bid](https://www.cnbc.com/2025/08/12/perplexity-google-chrome-ai.html) to buy Chrome from Google for nearly $35 billion. This comes despite the company's own attempt at building a new web browser, [Comet](https://www.perplexity.ai/comet). Most people dismissed the bid as a marketing stunt, an attempt to highlight Google's antitrust problems, and perhaps even force a sale. Others took it as nothing more than a [joke](https://x.com/aidangomez/status/1956361969323184361).
