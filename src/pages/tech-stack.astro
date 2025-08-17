@@ -1,0 +1,107 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const TECH = [
+    {
+        href: "https://github.com/air-verse/air",
+        title: "air",
+        description:
+            "Easy to configure live reload for Go apps. Speeds up local development and recompilation.",
+    },
+    {
+        href: "https://github.com/blevesearch/bleve",
+        title: "bleve",
+        description:
+            "Lucene-like, Go-native text indexing and search library. Easy to get started and scales well.",
+    },
+    {
+        href: "https://github.com/spf13/cobra",
+        title: "cobra",
+        description: "Go-to toolkit for building Go CLI applications.",
+    },
+    {
+        href: "https://github.com/gocolly/colly",
+        title: "colly",
+        description: "Easy to use and mature interfaces to build web crawlers in Go.",
+    },
+    {
+        href: "https://github.com/mattn/go-sqlite3",
+        title: "go-sqlite3",
+        description: "Go-to SQLite driver for Go.",
+    },
+    {
+        href: "https://github.com/goreleaser/goreleaser",
+        title: "goreleaser",
+        description: "Useful if you're building and distributing Go binaries, particularly for multiple platforms.",
+    },
+    {
+        href: "https://github.com/tmc/langchaingo",
+        title: "langchaingo",
+        description: "Faithful implementation of langchain in Go. Contains most of the interfaces you need to build AI applications.",
+    },
+    {
+        href: "https://github.com/golang-migrate/migrate",
+        title: "migrate",
+        description: "Mature, easy-to-use MySQL and Postgres db migrations library and manager.",
+    },
+    {
+        href: "https://ollama.com/",
+        title: "ollama",
+        description: "Easiest way to run open LLMs on your Macbook.",
+    },
+    {
+        href: "https://github.com/redis/redis",
+        title: "redis",
+        description: "Kitchen sink, swiss-army knife of datastores. Easy to deploy, scales well, lots of use cases.",
+    },
+    {
+        href: "https://github.com/r3labs/sse",
+        title: "sse",
+        description: "Server-sent events implementation for Go.",
+    },
+
+    {
+        href: "https://github.com/coder/websocket",
+        title: "websocket",
+        description: "Websocket client and server implementations for Go.",
+    },
+    {
+        href: "https://github.com/rs/zerolog",
+        title: "zerolog",
+        description: "High performance, structured logger for Go.",
+    },
+];
+---
+
+<Layout
+    title="Tech stack"
+    description="A list of my favorite software that I've personally used and recommend"
+>
+    <h1 class="mb-8 text-2xl font-semibold">Tech stack</h1>
+    <p class="mb-2">
+        A list of my favorite software that I've personally used and recommend.
+        I primarily use Golang these days so there are a lot of Go projects and
+        libraries.
+    </p>
+    <p class="mb-8 text-sm text-neutral-500 dark:text-neutral-400">
+        Last updated: August 2025
+    </p>
+    <ul class="space-y-6">
+        {
+            TECH.map((tech) => (
+                <li>
+                    <a
+                        href={tech.href}
+                        class="hover:underline"
+                        rel="noopener noreferrer"
+                    >
+                        {tech.title}
+                    </a>
+                    <p class="text-sm mt-1 text-neutral-500 dark:text-neutral-400">
+                        {tech.description}
+                    </p>
+                </li>
+            ))
+        }
+    </ul>
+</Layout>

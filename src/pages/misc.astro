@@ -3,6 +3,12 @@ import Layout from "../layouts/Layout.astro";
 
 const LINKS = [
     {
+        href: "/tech-stack/",
+        title: "Tech stack",
+        description:
+            "A list of my favorite software that I've personally used and recommend",
+    },
+    {
         href: "https://www.youtube.com/watch?v=SF4m23No2Gg",
         title: "How Small Teams Can Build and Sell to Much Larger Enterprises - ELC 2024",
         description:
@@ -26,7 +32,6 @@ const LINKS = [
                     <a
                         href={link.href}
                         class="hover:underline"
-                        target="_blank"
                         rel="noopener noreferrer"
                     >
                         {link.title}
