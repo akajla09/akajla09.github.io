@@ -7,6 +7,7 @@ import "../styles/global.css";
 type Props = {
     title?: string;
     description?: string;
+    keywords?: string;
     heroImage?: string;
     structuredData?: string;
 };
@@ -14,6 +15,7 @@ type Props = {
 const {
     title = "Aditya Kajla",
     description = "Aditya Kajla",
+    keywords,
     heroImage,
     structuredData,
 } = Astro.props;
@@ -25,7 +27,7 @@ const {
         <BaseHead
             title={title}
             description={description}
-            keywords=""
+            keywords={keywords}
             image={heroImage}
             structuredData={structuredData}
         />

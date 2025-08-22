@@ -3,6 +3,7 @@ title: "A New Browser War"
 publishDate: 2025-08-16T0:00:00-07:00
 slug: "a-new-browser-war"
 description: "AI and LLMs are ushering in a new era of web browsers and fundamentally changing how we browse the Internet"
+keywords: "browser war, AI browsers, Perplexity Chrome bid, Perplexity search, Comet browser, new browser competition, Google Chrome alternatives, web browsers, AI search engines, Aditya Kajla blog"
 image: "https://akajla.com/og-browser-war.jpeg"
 ---
 
