@@ -16,30 +16,30 @@ const { Content } = await render(post);
 const structuredData = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    headline: title,
-    description: description,
-    image: image,
-    author: {
+    "headline": title,
+    "description": description,
+    "image": image,
+    "author": {
         "@type": "Person",
-        name: "Aditya Kajla",
-        url: "https://akajla.com",
+        "name": "Aditya Kajla",
+        "url": "https://akajla.com"
     },
-    publisher: {
+    "publisher": {
         "@type": "Organization",
-        name: "Aditya Kajla",
-        logo: {
+        "name": "Aditya Kajla",
+        "logo": {
             "@type": "ImageObject",
-            url: "https://akajla.com/favicon.svg",
-        },
+            "url": "https://akajla.com/favicon.svg"
+        }
     },
-    datePublished: publishDate,
-    dateModified: publishDate,
-    mainEntityOfPage: {
+    "datePublished": publishDate,
+    "dateModified": publishDate,
+    "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": `https://akajla.com/blog/${slug}`,
+        "@id": `https://akajla.com/blog/${slug}`
     },
-    keywords: keywords.split(", "),
-    url: `https://akajla.com/blog/${slug}`,
+    "keywords": (keywords ?? "").split(", "),
+    "url": `https://akajla.com/blog/${slug}`
 };
 
 const structuredDataString = JSON.stringify(structuredData);
