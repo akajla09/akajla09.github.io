@@ -14,6 +14,12 @@ const { post } = Astro.props;
 const { title, description, keywords, publishDate, image } = post.data;
 const slug = post.id;
 const { Content } = await render(post);
+const formattedPublishDate = publishDate.toLocaleDateString("en-US", {
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+});
 const structuredData = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -53,7 +59,10 @@ const structuredDataString = JSON.stringify(structuredData);
     heroImage={image}
     structuredData={structuredDataString}
 >
-    <h1 class="mb-8 text-2xl font-semibold">{title}</h1>
+    <h1 class="mb-2 text-2xl font-semibold">{title}</h1>
+    <p class="mb-8 text-sm text-neutral-500 dark:text-neutral-400">
+        {formattedPublishDate}
+    </p>
     <article class="prose dark:prose-invert">
         <Content />
     </article>
