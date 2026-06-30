@@ -3,6 +3,323 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Not Found | Aditya Kajla">
-    <h1 class="mb-8 text-2xl font-semibold">Not found</h1>
-    <img src="/kobe-dunk.gif" alt="Not Found" class="mx-auto max-w-full rounded-lg" loading="lazy" />
+    <section class="not-found-game" aria-labelledby="game-title">
+        <div class="game-copy">
+            <h1 class="mb-8 text-2xl font-semibold" id="game-title">Page not found</h1>
+            <p class="mb-2">
+                Play some hoops. Press <kbd>Space</kbd> or click/tap the court to shoot.
+            </p>
+        </div>
+
+        <div class="scoreboard" aria-label="Basketball game scoreboard">
+            <span>Score <strong data-score>0</strong></span>
+        </div>
+
+        <div class="court" data-court>
+            <div class="backboard" aria-hidden="true">
+                <div class="rim"></div>
+                <div class="net"></div>
+            </div>
+            <div class="shooter" aria-hidden="true"></div>
+            <div class="ball" data-ball aria-hidden="true"></div>
+        </div>
+
+    </section>
 </Layout>
+
+<style>
+    .not-found-game {
+        --arcade-teal: #0fa295;
+        --arcade-orange: #f97316;
+        --lakers-yellow: #fdb927;
+        --lakers-purple: #552583;
+        --dark-brown: #4a2f22;
+        --soft-cream: 232 226 214;
+        display: grid;
+        gap: 1rem;
+        font: inherit;
+    }
+
+    .eyebrow {
+        margin-bottom: 0.4rem;
+        color: var(--arcade-teal);
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
+
+    .game-copy kbd {
+        border: 1px solid rgb(212 212 212);
+        border-bottom-width: 2px;
+        border-radius: 0.45rem;
+        padding: 0.1rem 0.35rem;
+        background: rgb(250 250 250);
+        color: rgb(23 23 23);
+        font-size: 0.85em;
+    }
+
+    .scoreboard {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        color: rgb(64 64 64);
+        font-size: 0.8rem;
+    }
+
+    .scoreboard span {
+        border: 1px solid rgb(229 229 229);
+        border-radius: 999px;
+        padding: 0.35rem 0.65rem;
+        background: rgb(250 250 250);
+    }
+
+    .scoreboard strong {
+        color: rgb(23 23 23);
+        font-variant-numeric: tabular-nums;
+    }
+
+    .court {
+        position: relative;
+        min-height: 280px;
+        overflow: hidden;
+        border: 1px solid rgb(229 229 229);
+        border-radius: 1.5rem;
+        background:
+            radial-gradient(circle at 72% 22%, rgb(85 37 131 / 0.16), transparent 24%),
+            linear-gradient(135deg, rgb(250 250 250), rgb(245 245 245));
+        cursor: pointer;
+    }
+
+    .backboard {
+        position: absolute;
+        right: 12%;
+        top: 23%;
+        width: 4.25rem;
+        height: 3rem;
+        border: 2px solid rgb(38 38 38 / 0.68);
+        border-radius: 0.35rem;
+        background: rgb(255 255 255 / 0.58);
+        box-shadow: 0 8px 24px rgb(15 23 42 / 0.08);
+    }
+
+    .rim {
+        position: absolute;
+        left: -1.35rem;
+        bottom: 0.45rem;
+        width: 2.85rem;
+        height: 0.48rem;
+        border: 3px solid var(--arcade-orange);
+        border-radius: 999px;
+        background: rgb(255 255 255 / 0.35);
+    }
+
+    .net {
+        position: absolute;
+        left: -0.9rem;
+        bottom: -1.35rem;
+        width: 2rem;
+        height: 1.65rem;
+        border-right: 1px solid rgb(115 115 115 / 0.45);
+        border-bottom: 1px solid rgb(115 115 115 / 0.45);
+        border-left: 1px solid rgb(115 115 115 / 0.45);
+        border-radius: 0 0 999px 999px;
+        transform-origin: top center;
+    }
+
+    .net.swish {
+        animation: net-swish 360ms ease;
+    }
+
+    .shooter {
+        position: absolute;
+        left: 13%;
+        bottom: 19%;
+        width: 2.8rem;
+        height: 4.25rem;
+        background: radial-gradient(circle at 50% 0.65rem, var(--dark-brown) 0 0.62rem, transparent 0.66rem);
+    }
+
+    .shooter::before {
+        content: "";
+        position: absolute;
+        left: 0.46rem;
+        top: 1.36rem;
+        width: 1.88rem;
+        height: 2.72rem;
+        border-top: 0.22rem solid var(--lakers-purple);
+        border-radius: 999px 999px 0.55rem 0.55rem / 1.25rem 1.25rem 0.55rem 0.55rem;
+        background: var(--lakers-yellow);
+        box-shadow:
+            inset 0.18rem 0 0 rgb(85 37 131 / 0.24),
+            inset -0.18rem 0 0 rgb(85 37 131 / 0.24);
+    }
+
+    .shooter::after {
+        content: "24";
+        position: absolute;
+        left: 50%;
+        top: 2.16rem;
+        color: var(--lakers-purple);
+        font-size: 0.8rem;
+        font-weight: 700;
+        line-height: 1;
+        transform: translateX(-50%);
+    }
+
+    .ball {
+        position: absolute;
+        left: 18%;
+        top: 63%;
+        width: 1.55rem;
+        aspect-ratio: 1;
+        border: 2px solid rgb(154 52 18);
+        border-radius: 999px;
+        background:
+            linear-gradient(90deg, transparent 44%, rgb(154 52 18) 44% 56%, transparent 56%),
+            linear-gradient(0deg, transparent 44%, rgb(154 52 18) 44% 56%, transparent 56%),
+            var(--arcade-orange);
+        box-shadow: 0 9px 18px rgb(15 23 42 / 0.16);
+        will-change: transform;
+    }
+
+    .ball.shooting {
+        animation: made-shot 900ms cubic-bezier(0.22, 0.75, 0.32, 1) forwards;
+    }
+
+    @keyframes made-shot {
+        0% {
+            left: 18%;
+            top: 63%;
+            transform: rotate(0deg) scale(1);
+        }
+
+        48% {
+            left: 52%;
+            top: 8%;
+            transform: rotate(260deg) scale(1);
+        }
+
+        78% {
+            left: calc(88% - 5.7rem);
+            top: calc(23% + 2.25rem);
+            transform: rotate(440deg) scale(0.95);
+        }
+
+        100% {
+            left: calc(88% - 5.7rem);
+            top: calc(23% + 4.2rem);
+            opacity: 0.35;
+            transform: rotate(540deg) scale(0.82);
+        }
+    }
+
+    @keyframes net-swish {
+        35% {
+            transform: skewX(-10deg) scaleY(1.18);
+        }
+
+        70% {
+            transform: skewX(8deg) scaleY(0.92);
+        }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .game-copy p,
+        .scoreboard {
+            color: rgb(212 212 212);
+        }
+
+        .game-copy kbd,
+        .scoreboard span {
+            border-color: rgb(64 64 64);
+            background: rgb(38 38 38);
+            color: rgb(245 245 245);
+        }
+
+        .scoreboard strong {
+            color: white;
+        }
+
+        .court {
+            border-color: rgb(64 64 64);
+            background:
+                radial-gradient(circle at 72% 22%, rgb(85 37 131 / 0.28), transparent 24%),
+                linear-gradient(135deg, rgb(23 23 23), rgb(10 10 10));
+        }
+
+        .backboard {
+            border-color: rgb(var(--soft-cream) / 0.72);
+            background: rgb(var(--soft-cream) / 0.16);
+        }
+
+        .net {
+            border-color: rgb(var(--soft-cream) / 0.55);
+        }
+
+        .shooter::before {
+            border-top-color: var(--lakers-yellow);
+            background: var(--lakers-purple);
+            box-shadow:
+                inset 0.18rem 0 0 rgb(253 185 39 / 0.34),
+                inset -0.18rem 0 0 rgb(253 185 39 / 0.34);
+        }
+
+        .shooter::after {
+            color: var(--lakers-yellow);
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .ball,
+        .net {
+            animation: none;
+            transition: none;
+        }
+    }
+</style>
+
+<script is:inline>
+    const court = document.querySelector("[data-court]");
+    const ball = document.querySelector("[data-ball]");
+    const scoreEl = document.querySelector("[data-score]");
+    const net = document.querySelector(".net");
+
+    let score = 0;
+    let shooting = false;
+
+    const updateScoreboard = () => {
+        scoreEl.textContent = score;
+    };
+
+    const shoot = () => {
+        if (shooting) {
+            return;
+        }
+
+        shooting = true;
+        score += 1;
+        updateScoreboard();
+
+        ball.classList.remove("shooting");
+        net.classList.remove("swish");
+        void ball.offsetWidth;
+        ball.classList.add("shooting");
+        window.setTimeout(() => net.classList.add("swish"), 650);
+        window.setTimeout(() => {
+            ball.classList.remove("shooting");
+            shooting = false;
+        }, 1050);
+    };
+
+    document.addEventListener("keydown", (event) => {
+        if (event.code !== "Space") {
+            return;
+        }
+
+        event.preventDefault();
+        shoot();
+    });
+
+    court.addEventListener("pointerdown", shoot);
+
+    updateScoreboard();
+</script>
