@@ -14,8 +14,8 @@ allPosts = allPosts.sort(
     <h1 class="mb-8 text-2xl font-semibold">Blog</h1>
     <ul class="space-y-6">
         {
-            allPosts.map((post, index) => {
-                const href = `/blog/${post.data.slug}`;
+            allPosts.map((post) => {
+                const href = `/blog/${post.id}`;
                 return (
                     <li>
                         <a href={href} class="hover:underline">

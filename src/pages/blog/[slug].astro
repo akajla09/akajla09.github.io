@@ -5,13 +5,14 @@ import Layout from "../../layouts/Layout.astro";
 export async function getStaticPaths() {
     const posts = await getCollection("posts");
     return posts.map((p) => ({
-        params: { slug: p.data.slug },
+        params: { slug: p.id },
         props: { post: p },
     }));
 }
 
 const { post } = Astro.props;
-const { title, slug, description, keywords, publishDate, image } = post.data;
+const { title, description, keywords, publishDate, image } = post.data;
+const slug = post.id;
 const { Content } = await render(post);
 const structuredData = {
     "@context": "https://schema.org",
